@@ -26,6 +26,7 @@ namespace test_entity_framework
                     Console.WriteLine(" Gender: {0}", item.student.StudentGender);
                     Console.WriteLine(" Address: {0}", item.student.StudentAddress);
                     Console.WriteLine(" Faculty: {0}", item.faculty.FacultyName);
+
                 }
             }
             Console.ReadKey();
