@@ -55,55 +55,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseFirstMode.Context.cs">
+    <Compile Include="DatabaseFirstModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DatabaseFirstMode.Context.tt</DependentUpon>
+      <DependentUpon>DatabaseFirstModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseFirstMode.cs">
+    <Compile Include="DatabaseFirstModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DatabaseFirstMode.tt</DependentUpon>
+      <DependentUpon>DatabaseFirstModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseFirstMode.Designer.cs">
+    <Compile Include="DatabaseFirstModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DatabaseFirstMode.edmx</DependentUpon>
+      <DependentUpon>DatabaseFirstModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="department.cs">
-      <DependentUpon>DatabaseFirstMode.tt</DependentUpon>
+    <Compile Include="Faculty.cs">
+      <DependentUpon>DatabaseFirstModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="student.cs">
-      <DependentUpon>DatabaseFirstMode.tt</DependentUpon>
+      <DependentUpon>DatabaseFirstModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="DatabaseFirstMode.edmx">
+    <EntityDeploy Include="DatabaseFirstModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DatabaseFirstMode.Designer.cs</LastGenOutput>
+      <LastGenOutput>DatabaseFirstModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DatabaseFirstMode.edmx.diagram">
-      <DependentUpon>DatabaseFirstMode.edmx</DependentUpon>
+    <None Include="DatabaseFirstModel.edmx.diagram">
+      <DependentUpon>DatabaseFirstModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DatabaseFirstMode.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DatabaseFirstMode.edmx</DependentUpon>
-      <LastGenOutput>DatabaseFirstMode.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DatabaseFirstMode.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DatabaseFirstMode.edmx</DependentUpon>
-      <LastGenOutput>DatabaseFirstMode.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="DatabaseFirstModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DatabaseFirstModel.edmx</DependentUpon>
+      <LastGenOutput>DatabaseFirstModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DatabaseFirstModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DatabaseFirstModel.edmx</DependentUpon>
+      <LastGenOutput>DatabaseFirstModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

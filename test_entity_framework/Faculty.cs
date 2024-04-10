@@ -12,16 +12,16 @@ namespace test_entity_framework
     using System;
     using System.Collections.Generic;
     
-    public partial class department
+    public partial class Faculty
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public department()
+        public Faculty()
         {
             this.students = new HashSet<student>();
         }
     
-        public int DepartmentID { get; set; }
-        public string DepartmentName { get; set; }
+        public int FacultyID { get; set; }
+        public string FacultyName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<student> students { get; set; }

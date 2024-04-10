@@ -16,10 +16,11 @@ namespace test_entity_framework
     {
         public int StudentID { get; set; }
         public string StudentName { get; set; }
+        public Nullable<int> StudentAge { get; set; }
         public string StudentGender { get; set; }
         public string StudentAddress { get; set; }
-        public Nullable<int> DepartmentID { get; set; }
+        public Nullable<int> FacultyID { get; set; }
     
-        public virtual department department { get; set; }
+        public virtual Faculty Faculty { get; set; }
     }
 }

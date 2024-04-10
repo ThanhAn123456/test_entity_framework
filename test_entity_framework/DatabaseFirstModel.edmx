@@ -5,12 +5,12 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="EntityDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="department">
+        <EntityType Name="Faculty">
           <Key>
-            <PropertyRef Name="DepartmentID" />
+            <PropertyRef Name="FacultyID" />
           </Key>
-          <Property Name="DepartmentID" Type="int" Nullable="false" />
-          <Property Name="DepartmentName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FacultyID" Type="int" Nullable="false" />
+          <Property Name="FacultyName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="student">
           <Key>
@@ -18,27 +18,28 @@
           </Key>
           <Property Name="StudentID" Type="int" Nullable="false" />
           <Property Name="StudentName" Type="nvarchar" MaxLength="50" />
+          <Property Name="StudentAge" Type="int" />
           <Property Name="StudentGender" Type="nvarchar" MaxLength="50" />
           <Property Name="StudentAddress" Type="nvarchar" MaxLength="100" />
-          <Property Name="DepartmentID" Type="int" />
+          <Property Name="FacultyID" Type="int" />
         </EntityType>
-        <Association Name="FK__student__Departm__398D8EEE">
-          <End Role="department" Type="Self.department" Multiplicity="0..1" />
+        <Association Name="FK__student__Faculty__44FF419A">
+          <End Role="Faculty" Type="Self.Faculty" Multiplicity="0..1" />
           <End Role="student" Type="Self.student" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="department">
-              <PropertyRef Name="DepartmentID" />
+            <Principal Role="Faculty">
+              <PropertyRef Name="FacultyID" />
             </Principal>
             <Dependent Role="student">
-              <PropertyRef Name="DepartmentID" />
+              <PropertyRef Name="FacultyID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="EntityDBModelStoreContainer">
-          <EntitySet Name="department" EntityType="Self.department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Faculty" EntityType="Self.Faculty" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__student__Departm__398D8EEE" Association="Self.FK__student__Departm__398D8EEE">
-            <End Role="department" EntitySet="department" />
+          <AssociationSet Name="FK__student__Faculty__44FF419A" Association="Self.FK__student__Faculty__44FF419A">
+            <End Role="Faculty" EntitySet="Faculty" />
             <End Role="student" EntitySet="student" />
           </AssociationSet>
         </EntityContainer>
@@ -47,13 +48,13 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EntityDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="department">
+        <EntityType Name="Faculty">
           <Key>
-            <PropertyRef Name="DepartmentID" />
+            <PropertyRef Name="FacultyID" />
           </Key>
-          <Property Name="DepartmentID" Type="Int32" Nullable="false" />
-          <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="students" Relationship="Self.FK__student__Departm__398D8EEE" FromRole="department" ToRole="student" />
+          <Property Name="FacultyID" Type="Int32" Nullable="false" />
+          <Property Name="FacultyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="students" Relationship="Self.FK__student__Faculty__44FF419A" FromRole="Faculty" ToRole="student" />
         </EntityType>
         <EntityType Name="student">
           <Key>
@@ -61,28 +62,29 @@
           </Key>
           <Property Name="StudentID" Type="Int32" Nullable="false" />
           <Property Name="StudentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StudentAge" Type="Int32" />
           <Property Name="StudentGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="StudentAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="DepartmentID" Type="Int32" />
-          <NavigationProperty Name="department" Relationship="Self.FK__student__Departm__398D8EEE" FromRole="student" ToRole="department" />
+          <Property Name="FacultyID" Type="Int32" />
+          <NavigationProperty Name="Faculty" Relationship="Self.FK__student__Faculty__44FF419A" FromRole="student" ToRole="Faculty" />
         </EntityType>
-        <Association Name="FK__student__Departm__398D8EEE">
-          <End Role="department" Type="Self.department" Multiplicity="0..1" />
+        <Association Name="FK__student__Faculty__44FF419A">
+          <End Role="Faculty" Type="Self.Faculty" Multiplicity="0..1" />
           <End Role="student" Type="Self.student" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="department">
-              <PropertyRef Name="DepartmentID" />
+            <Principal Role="Faculty">
+              <PropertyRef Name="FacultyID" />
             </Principal>
             <Dependent Role="student">
-              <PropertyRef Name="DepartmentID" />
+              <PropertyRef Name="FacultyID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="EntityDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="departments" EntityType="Self.department" />
+        <EntityContainer Name="EntityDBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Faculties" EntityType="Self.Faculty" />
           <EntitySet Name="students" EntityType="Self.student" />
-          <AssociationSet Name="FK__student__Departm__398D8EEE" Association="Self.FK__student__Departm__398D8EEE">
-            <End Role="department" EntitySet="departments" />
+          <AssociationSet Name="FK__student__Faculty__44FF419A" Association="Self.FK__student__Faculty__44FF419A">
+            <End Role="Faculty" EntitySet="Faculties" />
             <End Role="student" EntitySet="students" />
           </AssociationSet>
         </EntityContainer>
@@ -91,12 +93,12 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="EntityDBModelStoreContainer" CdmEntityContainer="EntityDBEntities">
-          <EntitySetMapping Name="departments">
-            <EntityTypeMapping TypeName="EntityDBModel.department">
-              <MappingFragment StoreEntitySet="department">
-                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
-                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+        <EntityContainerMapping StorageEntityContainer="EntityDBModelStoreContainer" CdmEntityContainer="EntityDBEntities1">
+          <EntitySetMapping Name="Faculties">
+            <EntityTypeMapping TypeName="EntityDBModel.Faculty">
+              <MappingFragment StoreEntitySet="Faculty">
+                <ScalarProperty Name="FacultyID" ColumnName="FacultyID" />
+                <ScalarProperty Name="FacultyName" ColumnName="FacultyName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -105,9 +107,10 @@
               <MappingFragment StoreEntitySet="student">
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
                 <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="StudentAge" ColumnName="StudentAge" />
                 <ScalarProperty Name="StudentGender" ColumnName="StudentGender" />
                 <ScalarProperty Name="StudentAddress" ColumnName="StudentAddress" />
-                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="FacultyID" ColumnName="FacultyID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -13,10 +13,10 @@ namespace test_entity_framework
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EntityDBEntities : DbContext
+    public partial class EntityDBEntities1 : DbContext
     {
-        public EntityDBEntities()
-            : base("name=EntityDBEntities")
+        public EntityDBEntities1()
+            : base("name=EntityDBEntities1")
         {
         }
     
@@ -25,7 +25,7 @@ namespace test_entity_framework
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<department> departments { get; set; }
+        public virtual DbSet<Faculty> Faculties { get; set; }
         public virtual DbSet<student> students { get; set; }
     }
 }
